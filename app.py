@@ -2,10 +2,13 @@ import streamlit as st
 import os
 from PIL import Image
 import google.generativeai as genai
+import os
+from dotenv import load_dotenv
  
 # Define your Google API key directly
-api_key = "AIzaSyCLrzCk1tr_GFV3Jjt7HYxcYKoNpYbjl6w"
-genai.configure(api_key=api_key)
+load_dotenv()
+os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
  
 ## Let's create a function to load Gemini Pro Vision
 model = genai.GenerativeModel('gemini-1.5-flash')
