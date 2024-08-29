@@ -14,8 +14,8 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-1.5-flash')
  
 def get_gemini_response(input, image, prompt):
-    if input==None:
-        input = "Give hidden insight on the image"
+    if not input_text:  # Check if input is empty or None
+        input_text = "Give hidden insight of uploaded image"
     response = model.generate_content([input, image[0], prompt])
     return response.text
  
