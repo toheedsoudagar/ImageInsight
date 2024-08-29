@@ -36,6 +36,8 @@ def input_image_details(uploaded_file):
 st.set_page_config(page_title="Nu-Pie Image Insights Generator")
 st.header("Nu-pie Image Insights Generator Application")
 input = st.text_input("Input Prompt: ", key="input")
+if input==None:
+    input = "Give hidden insight on the image"
 uploaded_file = st.file_uploader("Choose an Image...", type=["jpg", "jpeg", "png"])
 image = ""
 if uploaded_file is not None:
